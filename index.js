@@ -8,13 +8,14 @@ var sally = Person({name:'sally'})
 
 saul.joinBoard(board)
 sally.joinBoard(board)
+sally.on('move', function (status) {
+    console.log(sally.getLocation())
+})
+
 
 sally.move('n')
-saul.move('w')
-saul.move('s')
+//saul.move('w')
+//saul.move('s')
 sally.move('e')
-saul.move('w')
+//saul.move('w')
 sally.move('e')
-
-console.log('sally loc', sally.getLocation())
-console.log('saul loc', saul.getLocation())
