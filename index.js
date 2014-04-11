@@ -1,13 +1,13 @@
-var Ashtapada = require('./lib/ashtapada')
-var Person = require('./lib/person')
+var Game = require('./lib/game')
 
-var board = Ashtapada()
+var board = Game.newBoard()
+//var saul = Game.newUnit('Person', {name:'saul'})
+var sally = Game.newUnit('Person', {name:'sally'})
 
-var saul = Person({name:'saul'})
-var sally = Person({name:'sally'})
 
-saul.joinBoard(board)
+//saul.joinBoard(board)
 sally.joinBoard(board)
+
 sally.on('move', function (status) {
     console.log(sally.getLocation())
 })
@@ -19,3 +19,5 @@ sally.move('n')
 sally.move('e')
 //saul.move('w')
 sally.move('e')
+
+console.log(sally)
