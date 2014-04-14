@@ -4,8 +4,7 @@ var ecstatic = require('ecstatic')
   ).listen(9999)
   , websocket = require('websocket-stream')
   , WebSocketServer = require('ws').Server
-  // , emitIO = require('emit.io')()
-  , emitIO = require('../emit.io/.')()
+  , emitIO = require('emit.io')()
   , wss =  new WebSocketServer({server: server})
   , EventEmitter = require('events').EventEmitter
   , MuxDemux = require('mux-demux')
