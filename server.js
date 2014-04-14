@@ -59,14 +59,6 @@ function router (stream) {
 
     saul.joinBoard(board, {x:4, y:5})
 
-    saul.on('damage', function () {
-      console.log('better call saul!', saul.getHealth())
-    })
-
-    saul.on('terminated', function () {
-    console.log("ah fuck, i'm dead   --saul")
-    })
-
     // pipe sally into control stream
     sally.joinBoard(board)
 
@@ -90,6 +82,15 @@ function router (stream) {
     sally.on('target-destroyed', function (target) {
 //      sally.store(target.getLoot())
     })
+
+    saul.on('damage', function () {
+      console.log('better call saul!', saul.getHealth())
+    })
+
+    saul.on('terminated', function () {
+    console.log("ah fuck, i'm dead   --saul")
+    })
+
 
     saul.on('move', function (status) {
       console.log("saul moved to", saul.getLocation())
