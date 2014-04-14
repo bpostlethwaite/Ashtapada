@@ -4,12 +4,13 @@ var UserMoves = require('./user/moves')
 var UserDistance = require('./user/distance')
 var UserAttack = require('./user/attack')
 
-var board_id = Game.newBoard()
+var board = Game.newBoard()
 
 var saul = Game.newUnit('Person', {name: 'saul'})
 var sally = Game.newUnit('Person', {name: 'sally'})
 
-saul.joinBoard(board_id, {x:4, y:5})
+// pipe saul into control stream
+saul.joinBoard(board, {x:4, y:5})
 
 saul.on('damage', function () {
   console.log('better call saul!', saul.getHealth())
@@ -19,7 +20,8 @@ saul.on('terminated', function () {
   console.log("ah fuck, i'm dead   --saul")
 })
 
-sally.joinBoard(board_id)
+// pipe sally into control stream
+sally.joinBoard(board)
 
 util.extend(sally, UserMoves)
 util.extend(sally, UserDistance)
@@ -40,7 +42,7 @@ sally.on('hit', function (damage) {
 })
 
 sally.on('target-destroyed', function (target) {
-  sally.store(target.getLoot())
+  //sally.store(target.getLoot())
 })
 
 saul.on('move', function (status) {

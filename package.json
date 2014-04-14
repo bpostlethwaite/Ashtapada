@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/bpostlethwaite/Ashtapada/issues"
   },
-  "homepage": "https://github.com/bpostlethwaite/Ashtapada"
+  "homepage": "https://github.com/bpostlethwaite/Ashtapada",
+  "dependencies": {
+    "ecstatic": "^0.5.1",
+    "emit.io": "^0.2.1",
+    "websocket-stream": "^0.5.1",
+    "mux-demux": "^3.7.8",
+    "ws": "^0.4.31"
+  }
 }
