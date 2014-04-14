@@ -4,8 +4,7 @@ var UserMoves = require('./user/moves')
 var UserDistance = require('./user/distance')
 var UserAttack = require('./user/attack')
 
-var board = Game.newBoard()
-
+var board = Game.newUnit('Board')
 var saul = Game.newUnit('Person', {name: 'saul'})
 var sally = Game.newUnit('Person', {name: 'sally'})
 

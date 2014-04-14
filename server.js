@@ -44,15 +44,8 @@ function router (stream) {
   var emitStream = emitIO(board)
   emitStream.pipe(stream)
 
-
-    //  console.log('grid ready')
-
   board.emit('init', gridSize)
   board.on('ready', function () {
-
-
-
-    //board.init([20,20])
 
     var saul = Game.newUnit('Person', {name: 'saul'})
     var sally = Game.newUnit('Person', {name: 'sally'})
