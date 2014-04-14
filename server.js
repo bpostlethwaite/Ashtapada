@@ -22,7 +22,6 @@ wss.on('connection', function(ws) {
   var wstream = websocket(ws)
     , mx = MuxDemux(router)
 
-
   mx.on('error', function () {
     wstream.destroy()
   })
@@ -35,9 +34,10 @@ wss.on('connection', function(ws) {
 
 function router (stream) {
 
-  var gridSize = [20,20]
+  var gridSize = {x:20, y:20}
+  var boardStatus = {_boardSize: gridSize}
 
-  var board = Game.newBoard({x:gridSize[0], y:gridSize[1]})
+  var board = Game.newUnit('Board', null, boardStatus)
 
   emitIO(stream, board)
   // link emitter to outgoing stream
@@ -88,11 +88,5 @@ function router (stream) {
     saul.on('move', function (status) {
       console.log("saul moved to", saul.getLocation())
     })
-
-
   })
-
-
-
-
 }

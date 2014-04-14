@@ -6,7 +6,7 @@ module.exports = function (View) {
 
   self.init = function (gridSize) {
     console.log('initializing ...', gridSize)
-    this.gridSize = gridSize
+    this.gridSize = [gridSize.x, gridSize.y]
     var numCols = this.gridSize[0],
         numRows = this.gridSize[1];
 
